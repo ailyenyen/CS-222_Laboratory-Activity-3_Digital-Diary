@@ -1,68 +1,135 @@
 using System;
-using System.IO;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace DigitalDiary
+namespace Antenor__Bunquin__Carranza__Mallen
 {
-    public class Diary
+    class Diary
     {
-        private readonly string filePath = "diary.txt";
+        private static string filepath = "diary.txt";
 
+        private static void EnsureFileExist()
+        {
+            if (!File.Exists(filepath))
+            {
+                File.Create(filepath).Close();
+            }
+        }
         public void WriteEntry(string text)
         {
-            using (StreamWriter writer = new StreamWriter(filePath, true))
+            EnsureFileExist();
+
+            using (StreamWriter writer = new StreamWriter(filepath, true))
             {
-                string entry = $"Date: {DateTime.Now:yyyy-MM-dd HH:mm:ss}\n{text}\n---\n";
-                writer.WriteLine(entry);
+                string timestamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                writer.WriteLine($"{timestamp} | {text}{Environment.NewLine}");
             }
+            
+            Console.WriteLine("Entry saved successfully.");
         }
 
         public void ViewAllEntries()
         {
-            if (File.Exists(filePath))
+            EnsureFileExist();
+
+            using (StreamReader reader = new StreamReader(filepath))
             {
-                string content = File.ReadAllText(filePath);
-                Console.WriteLine("\nAll Diary Entries:\n");
-                Console.WriteLine(content);
+                string? line;
+                int num = 0;
+                bool hasEntries = false;
+
+                while ((line = reader.ReadLine()) != null)
+                {
+                    if (!string.IsNullOrWhiteSpace(line))
+                    {
+                        Console.WriteLine($"{++num}. {line}");
+                        hasEntries = true;
+                    }
+                }
+
+                if (!hasEntries)
+                {
+                    Console.WriteLine("No entries found.");
+                }
             }
-            else
-            {
-                Console.WriteLine("No diary entries found.");
-            }
+
         }
 
         public void SearchByDate(string date)
         {
-            if (File.Exists(filePath))
+            EnsureFileExist();
+
+            using (StreamReader reader = new StreamReader(filepath))
             {
-                string[] lines = File.ReadAllLines(filePath);
+                string line;
                 bool found = false;
 
-                foreach (string line in lines) 
+                while ((line = reader.ReadLine()) != null)
                 {
-                    if (line.Contains($"Date: {date}"))
+                    if (line.StartsWith(date))
                     {
-                        found = true;
-                        Console.WriteLine("\nEntry Found:\n");
                         Console.WriteLine(line);
-
-                        int index = Array.IndexOf(lines, line);
-                        for (int i = index + 1; i < lines.Length && lines[i] != "---"; i++)
-                        {
-                            Console.WriteLine(lines[i]);
-                        }
-                        Console.WriteLine("---\n");
+                        found = true;
                     }
                 }
 
                 if (!found)
                 {
-                    Console.WriteLine($"No entries found for date: {date}");
+                    Console.WriteLine($"No entries found for {date}.");
                 }
             }
-            else
-            {
-                Console.WriteLine("No diary entries found.");
-            }
         }
+
+        public void DeleteEntry(int entryNumber)
+        {
+            EnsureFileExist();
+            List<string> lines = new List<string>(File.ReadAllLines(filepath));
+
+            if (entryNumber < 1 || entryNumber > lines.Count)
+            {
+                Console.WriteLine("Invalid entry number.");
+                return;
+            }
+
+            lines.RemoveAt(entryNumber - 1);
+            File.WriteAllLines(filepath, lines);
+            Console.WriteLine("Entry deleted successfully.");
+        }
+
+        public void ModifyEntry(int entryNumber, string newText)
+        {
+            EnsureFileExist();
+            string[] allLines = File.ReadAllLines(filepath);
+            List<string> validEntries = allLines.Where(line => !string.IsNullOrWhiteSpace(line)).ToList();
+
+            if (entryNumber < 1 || entryNumber > validEntries.Count)
+            {
+                Console.WriteLine("Invalid entry number.");
+                return;
+            }
+
+            string oldEntry = validEntries[entryNumber - 1];
+            string timestamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            string updatedEntry = $"{timestamp} | {newText}";
+
+            for (int i = 0, entryIndex = 0; i < allLines.Length; i++)
+            {
+                if (!string.IsNullOrWhiteSpace(allLines[i]))
+                {
+                    if (entryIndex == entryNumber - 1)
+                    {
+                        allLines[i] = updatedEntry;
+                        break;
+                    }
+                    entryIndex++;
+                }
+            }
+
+            File.WriteAllLines(filepath, allLines);
+            Console.WriteLine("Entry modified successfully.");
+        }
+
     }
 }
