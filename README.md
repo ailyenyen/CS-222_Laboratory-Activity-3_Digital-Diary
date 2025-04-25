@@ -13,6 +13,8 @@ The Digital Diary is a console-based C# application that allows users to write, 
 
 - Simple and user-friendly console interface
 
+- Deletes and modifies diary entries
+
 # Object-Oriented Programming Principles Used
 
 - Encapsulation: The Diary class hides the internal logic and file handling using private fields and public methods.
