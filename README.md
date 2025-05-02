@@ -49,13 +49,13 @@
 
 # 👥 Team Members
 
-John Timothy Caranza
+- John Timothy Caranza
 
-Jan Mayen Mallen
+- Jan Mayen Mallen
 
-Theodore Von Bunquin
+- Theodore Von Bunquin
 
-Justin Miguel Antenor
+- Justin Miguel Antenor
 
 # 🙏 Acknowledgement
 
