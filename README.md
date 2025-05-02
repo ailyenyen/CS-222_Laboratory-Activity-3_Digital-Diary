@@ -31,6 +31,19 @@
 2. **Clone** this repository:
    ```bash
    git clone https://github.com/your-username/digital-diary.git
+3. **Navigate** to the project directory:
+   ```bash
+   cd digital-diary
+4. **Build and run** the app:
+   ```bash
+   dotnet run
+   
+
+## 🗂️ File Structure
+
+
+
+## 📷 Sample Output
 
 
 
