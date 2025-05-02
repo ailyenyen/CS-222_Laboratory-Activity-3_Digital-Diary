@@ -1,7 +1,8 @@
 
-# Project Description
+# 📓 Digital Diary (C# Console Application)
 
-The Digital Diary is a console-based C# application that allows users to write, view, and search diary entries. It demonstrates file handling through an object-oriented programming approach. All diary entries are stored in a text file (diary.txt) and timestamped automatically.
+📌 Project Description
+Digital Diary is a console-based C# application that allows users to write, view, delete, modify, and search diary entries. It demonstrates effective file handling and object-oriented programming principles. All entries are timestamped and stored in a local text file (diary.txt).
 
 # Features
 
@@ -23,15 +24,28 @@ The Digital Diary is a console-based C# application that allows users to write, 
 
 - Modularity: Code is organized into separate files for better readability and maintainability.
 
-# Instructions on Running the App
+▶️ Instructions on Running the App
+Install .NET SDK 6.0 or later.
 
-Make sure .NET SDK (version 6.0 or later) is installed.
+Clone this repository:
 
-Open a terminal or command prompt.
+bash
+Copy
+Edit
+git clone https://github.com/your-username/digital-diary.git
+Navigate to the project directory:
 
-Navigate to the project folder.
+bash
+Copy
+Edit
+cd digital-diary
+Build and run the app:
 
-Build the project:
+bash
+Copy
+Edit
+dotnet run
+
 
 
 
