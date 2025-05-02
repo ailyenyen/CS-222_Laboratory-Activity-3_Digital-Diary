@@ -1,64 +1,40 @@
 
 # 📓 Digital Diary (C# Console Application)
 
-📌 Project Description
-Digital Diary is a console-based C# application that allows users to write, view, delete, modify, and search diary entries. It demonstrates effective file handling and object-oriented programming principles. All entries are timestamped and stored in a local text file (diary.txt).
+## 📌 Project Description  
+**Digital Diary** is a console-based C# application that allows users to write, view, delete, modify, and search diary entries. It demonstrates effective file handling and object-oriented programming principles. All entries are timestamped and stored in a local text file (`diary.txt`).
 
-# Features
+---
 
--Write new diary entries with the current timestamp
+## ✨ Features
+- ✍️ Write new diary entries with automatic timestamps  
+- 📖 View all saved entries  
+- 🔍 Search entries by date (`YYYY-MM-DD` format)  
+- 🗑️ Delete specific entries  
+- ✏️ Modify existing entries  
+- 🖥️ Clean and user-friendly console interface  
 
-- View all saved entries
+---
 
-- Search for entries by date (format: YYYY-MM-DD)
+## 🔧 How OOP Principles Are Used
 
-- Simple and user-friendly console interface
+- **Encapsulation**: Internal file handling logic is managed within the `Diary` class using private fields and public methods.  
+- **Abstraction**: Complex operations like writing or searching entries are simplified through user-facing methods like `WriteEntry()` and `SearchByDate()`.  
+- **Modularity**: Code is split across multiple files to improve organization and readability.  
+- **Inheritance & Polymorphism** *(optional)*: These can be extended in future versions for more entry types or UI commands.
 
-- Deletes and modifies diary entries
+---
 
-# Object-Oriented Programming Principles Used
+## ▶️ Instructions on Running the App
 
-- Encapsulation: The Diary class hides the internal logic and file handling using private fields and public methods.
-
-- Abstraction: Provides a simplified interface (WriteEntry, ViewAllEntries, SearchByDate) for complex file operations.
-
-- Modularity: Code is organized into separate files for better readability and maintainability.
-
-▶️ Instructions on Running the App
-Install .NET SDK 6.0 or later.
-
-Clone this repository:
-
-bash
-Copy
-Edit
-git clone https://github.com/your-username/digital-diary.git
-Navigate to the project directory:
-
-bash
-Copy
-Edit
-cd digital-diary
-Build and run the app:
-
-bash
-Copy
-Edit
-dotnet run
+1. **Install** [.NET SDK 6.0 or later](https://dotnet.microsoft.com/en-us/download).
+2. **Clone** this repository:
+   ```bash
+   git clone https://github.com/your-username/digital-diary.git
 
 
 
-
-
-
-
-
-
-
-
-
-
-# Team Members
+# 👥 Team Members
 
 John Timothy Caranza
 
@@ -68,6 +44,6 @@ Theodore Von Bunquin
 
 Justin Miguel Antenor
 
-# Acknowledgement
+# 🙏 Acknowledgement
 
 Special thanks to our CS 222 instructor and team members for their dedication and persistence throughout development.
