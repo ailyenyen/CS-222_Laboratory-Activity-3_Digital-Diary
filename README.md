@@ -40,12 +40,38 @@
    
 
 ## 🗂️ File Structure
-
-
-
+```bash 
+DigitalDiary/
+├── Program.cs         // Main menu and user interaction
+├── Diary.cs           // Diary class with file operations
+├── diary.txt          // Automatically created text file for entries
+└── README.md          // Project documentation
+```
 ## 📷 Sample Output
+```bash
+Diary Application
+1. Write Entry
+2. View All Entries
+3. Search Entry by Date
+4. Modify an Entry
+5. Delete an Entry
+6. Exit
+Enter choice: 1
+Enter your diary entry: Learned about StreamReader today.
+Entry saved successfully.
 
+Entries:
+1. 2025-04-25 16:00:00 | Learned about StreamReader today.
 
+Enter choice: 4
+Enter entry number to modify: 1
+Enter new text: Reviewed StreamWriter too.
+Entry modified successfully.
+
+Enter choice: 5
+Enter entry number to delete: 1
+Entry deleted successfully.
+```
 
 # 👥 Team Members
 
