@@ -10,7 +10,6 @@
 - ✍️ Write new diary entries with automatic timestamps  
 - 📖 View all saved entries  
 - 🔍 Search entries by date (`YYYY-MM-DD` format)  
-- 🗑️ Delete specific entries  
 - ✏️ Modify existing entries  
 - 🖥️ Clean and user-friendly console interface  
 
@@ -54,8 +53,7 @@ Diary Application
 2. View All Entries
 3. Search Entry by Date
 4. Modify an Entry
-5. Delete an Entry
-6. Exit
+5. Exit
 Enter choice: 1
 Enter your diary entry: Learned about StreamReader today.
 Entry saved successfully.
@@ -68,9 +66,6 @@ Enter entry number to modify: 1
 Enter new text: Reviewed StreamWriter too.
 Entry modified successfully.
 
-Enter choice: 5
-Enter entry number to delete: 1
-Entry deleted successfully.
 ```
 
 # 👥 Team Members
